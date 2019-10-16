@@ -1,0 +1,34 @@
+a {
+    text-decoration: none;
+    color: #eeeeee;
+}
+header {
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(to left, #2b2b2b, #434343);
+}
+.container {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+        display: flex;
+        li {
+            list-style: none;
+            a {
+                padding: 1rem 0;
+                margin: 0 3rem;
+                position: relative;
+                letter-spacing: 2px;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 
 class Nav extends Component {
     render() {
-        return(
+        return (
             <header>
-                <h4 className='header__logo'>Arcadia</h4>
-                <nav>
-                    <ul className='nav__links'>
-                        <li><a href='#'>Home</a></li>
-                        <li><a href='#'>Games</a></li>
-                        <li><a href='#'>My Games</a></li>
-                    </ul>
-                </nav>
-                <a className='cta' href='#'><button>Contact</button></a>
+                <div className="container">
+                    <nav>
+                        <h1 className="brand"><a href="#">Arcadia</a></h1>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Games</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </header>
         );
     }

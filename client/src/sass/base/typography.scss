@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+// Nav
+nav {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.brand {
+    font-size: 3rem;
+    font-weight: 400;
+    a {
+        background-image: linear-gradient(to right, #a8ff78, #78ffd6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
