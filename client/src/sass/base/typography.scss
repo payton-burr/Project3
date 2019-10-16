@@ -7,14 +7,14 @@ body {
 }
 
 // Nav
-nav {
-    font-size: 1.5rem;
-    text-transform: uppercase;
+li, a {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #eeeeee;
 }
 .brand {
-    font-size: 3rem;
-    font-weight: 400;
     a {
+        font-size: 3rem;
         background-image: linear-gradient(to right, #a8ff78, #78ffd6);
         -webkit-background-clip: text;
         background-clip: text;
