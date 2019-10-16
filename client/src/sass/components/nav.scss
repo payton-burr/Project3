@@ -5,6 +5,9 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+.brand {
+    margin-left: 3rem;
+}
 .nav__links {
         display: flex;
         li {
@@ -22,6 +25,7 @@ header {
         }
 }
 button {
+    margin-right: 3rem;
     font-size: 1.6rem;
     color: #2b2b2b;
     padding: .9rem 2.5rem;
