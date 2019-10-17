@@ -4,9 +4,9 @@ class Nav extends Component {
     render() {
         return (
             <header>
-                <h1 className="brand"><a href="#">Arcadia</a></h1>
                 <nav>
                     <ul className='nav__links'>
+                        <h1 className="brand"><a href="#">Arcadia</a></h1>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">All Games</a></li>
                         <li><a href="#">Classic</a></li>
