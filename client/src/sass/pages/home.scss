@@ -1,7 +1,17 @@
-.section__about {
-    background-color: grey;
+.header {
     height: 93vh;
+    background-image: url('/img/image.png');
+    background-size: cover;
+    background-position: top;
+    position: relative;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    position: relative;
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }

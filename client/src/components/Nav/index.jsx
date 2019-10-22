@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Nav extends Component {
     render() {
         return (
-            <header>
+            <header className='nav-header'>
                 <nav>
                     <ul className='nav__links'>
                         <h1 className="brand"><a href="#">Arcadia</a></h1>
