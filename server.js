@@ -5,24 +5,27 @@ const path = require("path");
 
 require('dotenv').config();
 
-const PORT = process.env.PORT || 3001;
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// 
 // Define middleware here
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
+
+// Mongoose connection
+
+const uri = process.env.ATLAS_URI;
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-mongoose.connect("mongodb://localhost/arcadiadb", { useNewUrlParser: true, useUnifiedTopology: true });
-
-const connection = mongoose.connection;
-
-connection.once('open', () => {
-  console.log('MongoDB database connection established successfully');
-});
 
 // Define API routes here
 
