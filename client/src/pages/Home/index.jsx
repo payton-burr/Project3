@@ -20,7 +20,7 @@ class Homepage extends Component {
                                 <h2 className='heading-secondary u-margin-bottom-medium'>
                                 Keep track of your favorites
                                 </h2>
-                                <a href='/users/register' className='btn btn--white btn--animated'>Register</a>
+                                <a href='/register' className='btn btn--white btn--animated'>Register</a>
                                 </div>
                                 <div className='bg-video'>
                                     <video className='bg-video__content' autoPlay muted loop>

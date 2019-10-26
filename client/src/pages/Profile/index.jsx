@@ -22,7 +22,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='profile-container'>
         <h1>Profile</h1>
         <div className='col-1-of-2'>
           <h3>Name: {this.state.name}</h3>

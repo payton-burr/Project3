@@ -1,0 +1,44 @@
+.container {
+  margin: 3rem auto;
+  max-width: 40rem;
+  padding: 2rem;
+  line-height: 1.8;
+  font-size: 2rem;
+
+
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.form-wrap {
+  background-color: $color-grey-dark;
+  padding: 1.5rem 2.5rem;
+  color: #fff;
+}
+.form-wrap h1, .form-wrap p {
+  text-align: center;
+}
+.form-wrap .form-group {
+  margin-top: 1.5rem;
+}
+.form-wrap .form-group label {
+  display: block;
+  color: #e6e6e6;
+}
+.form-wrap .form-group input {
+  width: 100%;
+  padding: 1rem;
+  border: #ddd 1px solid;
+  border-radius: 5px;
+}
+.form-wrap button {
+  display: block;
+  width: 100%;
+  background-color: $color-primary;
+  padding: 1rem;
+  margin-top: 2rem;
+  color: $color-grey-dark;
+  cursor: pointer;
+}

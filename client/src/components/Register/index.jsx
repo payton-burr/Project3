@@ -33,9 +33,9 @@ class Register extends Component {
 
   render() {
     return (
-      <div id="container">
+      <div className="container">
       <div className="form-wrap">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form noValidate onSubmit={this.onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
@@ -53,7 +53,7 @@ class Register extends Component {
         </form>
       </div>
       <footer>
-        <p>Already have an account? <a href="/users/login">Login Here</a></p>
+        <p>Already have an account? <a href="/login">Login Here</a></p>
       </footer>
     </div>
     )

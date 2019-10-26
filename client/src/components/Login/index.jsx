@@ -33,7 +33,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div id="container">
+      <div className="container">
       <div className="form-wrap">
         <h1>Login</h1>
         <form noValidate onSubmit={this.onSubmit}>
@@ -49,7 +49,7 @@ class Login extends Component {
         </form>
       </div>
       <footer>
-        <p>No Account? <a href="/users/register">Register</a></p>
+        <p>No Account? <a href="/register">Register</a></p>
       </footer>
     </div>
     )
