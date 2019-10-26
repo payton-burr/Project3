@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Nav extends Component {
 
@@ -13,17 +13,17 @@ class Nav extends Component {
         const loginLink = (
             <ul className='nav__links'>
                     <li>
-                        <Link to='/login'><button>Login</button></Link>
+                        <Link to='/login'>Login</Link>
                     </li>
                     <li>
-                        <Link to='/register'><button>Register</button></Link>
+                        <Link to='/register' >Register</Link>
                     </li>
                 </ul>
         )
         const userLink = (
             <ul className='nav__links'>
                     <li>
-                        <Link to='/profile'><button>Profile</button></Link>
+                        <Link to='/profile'>Profile</Link>
                     </li>
                     <li>
                         <a href='' onClick={this.logOut.bind(this)}>Logout</a>
@@ -51,4 +51,4 @@ class Nav extends Component {
     }
 }
 
-export default Nav;
+export default withRouter(Nav);

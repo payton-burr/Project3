@@ -4,8 +4,9 @@ import "./sass/main.scss";
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from './components/Login';
+import Register from './components/Register';
+import Profile from "./pages/Profile";
 
 class App extends Component {
   render() {
@@ -14,10 +15,11 @@ class App extends Component {
         <React.Fragment>
           <Nav />
           <Switch>
-            <Route path='/' exact={true} component={Home} />
+            <Route exact path='/' component={Home} />
             <Route path='/dashboard' component={Dashboard} />
-            <Route path='/users/login' component={Login} />
-            <Route path='/users/register' component={Register} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/profile' component={Profile} />
           </Switch>
         </React.Fragment>
       </Router>

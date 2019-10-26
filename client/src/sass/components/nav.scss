@@ -18,24 +18,7 @@
                 transition: all .3s ease 0s;
                 &:hover {
                     color: #78ffd6;
-                } 
-                &:last-child {
-                    margin-right: 0;
                 }
             }
         }
-}
-button {
-    margin-right: 3rem;
-    font-size: 1.6rem;
-    color: $color-grey-dark;
-    padding: .9rem 2.5rem;
-    background-color: rgba(#a8ff78, 1);
-    border: none;
-    border-radius: 5rem;
-    cursor: pointer;
-    transition: a .3s ease 0s;
-    &:hover {
-        background-color: rgba(#a8ff78, .8);
-    }
 }

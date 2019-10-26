@@ -34,18 +34,18 @@ class Login extends Component {
   render() {
     return (
       <div id="container">
-      <div class="form-wrap">
+      <div className="form-wrap">
         <h1>Login</h1>
         <form noValidate onSubmit={this.onSubmit}>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="email">Email</label>
             <input type="email" name="email" id="email" placeholder='Enter Email' value={this.state.email} onChange={this.onChange}/>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" placeholder='Enter Password' value={this.state.password} onChange={this.onChange}/>
           </div>
-          <button type="submit" class="btn-login">Login</button>
+          <button type="submit" className="btn-login">Login</button>
         </form>
       </div>
       <footer>
