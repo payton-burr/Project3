@@ -16,8 +16,6 @@ class Nav extends Component {
                         <li>
                             <Link to='/dashboard'>All Games</Link>
                         </li>
-                        <li><a href="#">Classic</a></li>
-                        <li><a href="#">Tower Defense</a></li>
                     </ul>
                 </nav>
             </header>

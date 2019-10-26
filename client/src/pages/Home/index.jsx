@@ -19,7 +19,7 @@ class Homepage extends Component {
                                 <h2 className='heading-secondary u-margin-bottom-medium'>
                                 Play a variety of classic games
                                 </h2>
-                                <a href='/users/login' className='btn btn--white btn--animated'>Play now</a>
+                                <a href='/dashboard' className='btn btn--white btn--animated'>Play now</a>
                                 </div>
                                 <div className='bg-video'>
                                     <video className='bg-video__content' autoPlay muted loop>
