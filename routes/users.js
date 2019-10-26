@@ -1,92 +1,77 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
-const { forwardAuthenticated } = require('../controller/auth');
+require('dotenv').config();
+
 const User = require('../models/User');
-
-// login page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
-
-
-// Register page
-router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
+router.use(cors());
 
 router.post('/register', (req, res) => {
-  const {name, email, password, password2} = req.body;
-  let errors = [];
+  const {name, email, password } = req.body;
 
-  if(!name || !email || !password || !password2) {
-    errors.push({ msg: 'Please fill in all fields' });
-  }
-
-  if(password !== password2) {
-    errors.push({ msg: 'Passwords do not match' });
-  }
-
-  if(password.length < 6) {
-    errors.push({ msg: 'Password must be at least 6 characters' });
-  }
-
-  if(errors.length > 0) {
-    res.render('register', {
-      errors,
-      name,
-      email,
-      password,
-      password2
-    });
-  } else {
-    User.findOne({ email: email })
-      .then(user => {
-        if(user) {
-          errors.push({ msg: 'Email is already in use' });
-          res.render('register', {
-            errors,
-            name,
-            email,
-            password,
-            password2
-          });
-        } else {
-          const newUser = new User({
-            name,
-            email,
-            password
-          });
-
-          // hash
-          bcrypt.genSalt(10, (err, salt) => 
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-              if(err) throw err;
-              // set password
-              newUser.password = hash;
-              // save user
-              newUser.save()
-                .then(user => {
-                  req.flash('success_msg', 'You are now registered and can log in');
-                  res.redirect('/users/login');
-                })
-                .catch(err => console.log(err));
-          }))
-        }
+  User.findOne({
+    email: email
+  }).then(user => {
+    if(!user) {
+      bcrypt.hash(req.body.password, 10, (err, hash) => {
+        User.create(name, email, password).then(user => {
+          res.json({ status: user.email +  ' Registered'});
+        }).catch(err => {
+          res.send('error: ' + err);
+        });
       });
-  }
+    } else {
+      res.json({ error: 'User already exists' })
+    }
+  }).catch(err => {
+    res.send('error: ' + err)
+  })
+})
+
+router.post('/login', (req, res) => {
+  User.findOne({
+    email : req.body.email
+  }).then(user => {
+    if(user) {
+      if(bcrypt.compare(req.body.password, user.password)) {
+        const payload = {
+          _id : user._id,
+          name : user.name,
+          email : user.email
+        }
+        let token = jwt.sign(payload, process.env.SECRET_KEY, {
+          expiresIn : 1440
+        });
+        res.send(token);
+      } else {
+        res.json({error: 'User does not exist' });
+      }
+    } else {
+      res.json({ error: 'User does not exist' });
+    }
+  }).catch(err => {
+    res.send('error: ' + err);
+  });
 });
 
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/users/login',
-    failureFlash: true
-  })(req, res, next);
-});
+router.get('/profile', (req, res) => {
+  let decoded = jwt.verify(req.headers['authorization'], process. env.SECRET_KEY);
 
-router.get('/logout', (req, res) => {
-  req.logout();
-  req.flash('success_msg', 'You are logged out');
-  res.redirect('/users/login');
+  User.findOne({
+    _id : decoded._id
+  }).then(user => {
+    if(user) {
+      res.json(user);
+    } else {
+      res.send('User does not exist');
+    }
+  }).catch(err => {
+    res.send('error ' + err);
+  })
 })
 
 module.exports = router;
