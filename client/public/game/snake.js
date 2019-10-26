@@ -15,7 +15,7 @@ let score = 0;
 
 let d;
 
-let game = setInterval(draw, 120);
+let game = setInterval(draw, 100);
 
 snake[0] = {
   x : 9 * box,

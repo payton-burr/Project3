@@ -8,7 +8,7 @@ class Dashboard extends Component {
           <a href='game/snake.html'>Snake Game</a>
         </div>
         <div className='col-1-of-4'>
-          Test
+          <a href='game/pong.html'>Pong</a>
         </div>
         <div className='col-1-of-4'>
           Test
