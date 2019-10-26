@@ -4,10 +4,10 @@ const ctx = cvs.getContext('2d');
 const box = 32;
 
 const ground = new Image();
-ground.src = 'img/groundImg.png';
+ground.src = '../img/groundImg.png';
 
 const foodImg = new Image();
-foodImg.src = 'img/food.png';
+foodImg.src = '../img/food.png';
 
 let snake = [];
 
